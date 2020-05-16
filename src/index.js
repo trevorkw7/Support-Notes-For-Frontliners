@@ -5,14 +5,17 @@ import * as serviceWorker from './serviceWorker';
 import { ThemeProvider } from '@material-ui/core/styles/'
 import theme from './theme.js';
 import { BrowserRouter } from "react-router-dom";
+import FireBase, { FireBaseContext } from './assets/components/FireBase'
 
 ReactDOM.render(
 
   <BrowserRouter>
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
+    <FireBaseContext.Provider value={new FireBase()}>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </FireBaseContext.Provider>
   </React.StrictMode>
   </BrowserRouter>,
   document.getElementById('root')
